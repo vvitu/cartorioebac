@@ -5,6 +5,8 @@
 
 int registrar() // responsible function for register new user
 {
+	system("cls");
+	
 	setlocale(LC_ALL,"portuguese");
 	
 	// variables/string 
@@ -120,14 +122,28 @@ int registrar() // responsible function for register new user
 	
 	printf("\n");
 	
+	printf("\tUSUARIO CADASTRADO COM SUCESSO!\n\n");
+	
 	system("pause");
 	
 	system("cls");
 	
-	printf("\n\tUSUARIO CADASTRADO COM SUCESSO, PRESSIONE ENTER PARA CONTINUAR\n\n");
+	int opcao=0;
 	
-	system("pause");
+	printf("\n\tPRESSIONE 1 PARA NOVO CADASTRO OU 2 PARA VOLTAR AO MENU\n\n");
+	printf("\t");
+	scanf("%d",&opcao);
 	
+	switch(opcao)
+	{
+		case 1:
+			registrar();
+		break;
+		
+		case 2:
+			main();
+		break;
+	}
 }
 
 int consultar() // responsible function for search user
@@ -144,7 +160,10 @@ int consultar() // responsible function for search user
 	FILE *file; // open "file" mode and search 
 	file = fopen(cpf,"r"); // defining file and action, in case; "read"
 	
-	if(file == NULL){printf("\nNOT AVAIBLE\n");} // if archive does not exist, to present; NOT AVAIBLE
+	if(file == NULL) // if archive does not exist, to present; NOT AVAIBLE
+	{
+		printf("\nNOT AVAIBLE\n");
+	} 
 	
 	while(fgets(conteudo,200,file) != NULL) // defining number of search in the file
 	{	
@@ -154,7 +173,7 @@ int consultar() // responsible function for search user
 	
 	printf("\n"); 
 	system ("pause");
-	fclose(file); // close the file
+	fclose(file); // close the file	
 }
 
 int deletar() // responsible function for delete user
@@ -180,8 +199,7 @@ int deletar() // responsible function for delete user
 	printf("\n\tUSUÁRIO NÃO LOCALIZADO\n");
 	printf("\n");
 	
-	system("pause");
-	
+	system("pause");	
 }
 
 int main ()
@@ -225,5 +243,4 @@ int main ()
 			break;
 		}
 	}
-
 }
