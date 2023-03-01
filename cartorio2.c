@@ -107,7 +107,6 @@ int registrar() // responsible function for register new user
 	file = fopen(arquivo,"a");
 	fprintf(file,"\tENDEREÇO: ");
 	fprintf(file,endereco);
-	fprintf(file,"\n");
 	fclose(file);
 	
 	printf("\tCOMPLEMENTO: ");
@@ -130,10 +129,10 @@ int registrar() // responsible function for register new user
 	
 	int opcao=0;
 	
-	printf("\n\tPRESSIONE 1 PARA NOVO CADASTRO OU 2 PARA VOLTAR AO MENU\n\n");
+	printf("\n\tPRESSIONE 1 PARA CADASTRAR NOVO USUARIO OU 2 PARA VOLTAR AO MENU\n\n");
 	printf("\t");
 	scanf("%d",&opcao);
-	
+
 	switch(opcao)
 	{
 		case 1:
@@ -142,7 +141,7 @@ int registrar() // responsible function for register new user
 		
 		case 2:
 			main();
-		break;
+		break; 
 	}
 }
 
@@ -217,6 +216,7 @@ int main ()
 		printf("\t1 REGISTRAR USUÁRIO\n");
 		printf("\t2 CONSULTAR USUÁRIO\n");
 		printf("\t3 DELETAR USUÁRIO\n");
+		printf("\t4 SAIR\n");
 		printf("\t\nOPÇÃO: ");
 	
 		scanf("%d",&opcao); // getting user input whith %d, and putting in variable whith &opcao
@@ -236,6 +236,11 @@ int main ()
 			case 3:
 				deletar();
 			break; 
+			
+			case 4:
+				printf("\n\tOBRIGADO POR UTILIZAR O PROGRAMA\n");
+				return 0;
+			break;
 			
 			default:
 				printf("\n\tNOT AVAIBLE\n");
